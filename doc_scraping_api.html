@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-58643-34"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', "UA-58643-34");
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Pastebin.com - Scraping API</title>
+    <link rel="shortcut icon" href="favicons/8856--favicon.ico">
+    <meta name="description" content="Pastebin.com is the number one paste tool since 2002. Pastebin is a website where you can store text online for a set period of time.">
+    <meta property="og:description" content="Pastebin.com is the number one paste tool since 2002. Pastebin is a website where you can store text online for a set period of time.">
+            <meta property="fb:app_id" content="231493360234820">
+    <meta property="og:title" content="Pastebin.com - Scraping API">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pastebin.com/doc_scraping_api">
+    <meta property="og:image" content="https://pastebin.com/i/facebook.png">
+    <meta property="og:site_name" content="Pastebin">
+    <meta name="google-site-verification" content="jkUAIOE8owUXu8UXIhRLB9oHJsWBfOgJbZzncqHoF4A">
+    <link rel="canonical" href="https://pastebin.com/doc_scraping_api">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+        <meta name="csrf-param" content="_csrf-frontend">
+<meta name="csrf-token" content="NfuQknxoiW_VKb5ILRxzVqVZI96YkSpc6cKm9OQwayJ3pMnwFQzLIbhO0h1aSgYv9TwV86_6WxKoqJLFlwgJZA==">
+
+<link href="css/css-bootstrap.min.css" rel="stylesheet">        
+<link href="css/css-vendors.bundle.css" rel="stylesheet">
+<link href="css/css-app.bundle.css" rel="stylesheet">
+    </head>
+<body class="night-auto " data-pr="x2xy94pJ" data-pa="" data-sar="1" data-abd="1">
+
+
+<div class="wrap">
+
+        
+        
+<div class="header">
+    <div class="container">
+        <div class="header__container">
+
+                        <div class="header__left">
+                <a class="header__logo" href="pastebin.html">
+                    Pastebin                </a>
+
+                <div class="header__links h_1024">
+                    
+                    <a href="doc_api.html">API</a>
+                    <a href="tools.html">tools</a>
+                    <a href="faq.html">faq</a>
+                                    </div>
+
+                
+                <a class="header__btn" href="pastebin.html">
+                    paste                </a>
+            </div>
+
+                        <div class="header__right">
+
+                                    <div class="header_sign">
+                        <a href="login.html" class="btn-sign sign-in">Login</a>
+                        <a href="signup.html" class="btn-sign sign-up">Sign up</a>
+                    </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+</div>
+        
+
+    <div class="container">
+        <div class="content">
+
+                        
+                                    
+            
+            
+<div class="page -top -right">
+
+    <div class="content__title">Scraping API</div>
+    <div class="content__text">
+        <div class="notice -no-margin">
+            You can scrape our website, but your IP will most likely get blocked to prevent unnecessary load on our
+            servers. We therefore offer this scraping API service for people who want to scrape our platform without
+            getting blocked.
+        </div>
+    </div>
+    <div class="content__text">
+        This is the Pastebin scraping API documentation page. Here you can find all the information you need to get
+        started with our scraping API. If you have questions, feel free to
+        <a href="contact.html">contact us</a>.
+
+        <div style="margin: 8px 0 0 30px">
+            1. <a href="#1">Your Whitelisted IP</a><br>
+            2. <a href="#2">Request Limits</a><br>
+            3. <a href="#3">Recommended Scraping Logic</a><br>
+            4. <a href="#4">Request Most Recent Pastes</a><br>
+            5. <a href="#5">Request RAW Paste Data</a><br>
+            6. <a href="#6">Request Paste Metadata</a>
+        </div>
+    </div>
+
+    <!--    -->
+    <div id="1" class="anchor"></div>
+    <div class="content__sub_title">Your Account &amp; Whitelisted IP</div>
+    <div class="content__text">
+        Our Scraping API is only available for "PRO" members, and only for those who have their IP whitelisted. “PRO” accounts are enabled with Scraping API and to collect only records with syntax highlighting. Enterprise API offers more robust access, including the removal of this limitation and for commercial purposes with additional features. Please contact <a href="mailto:sales@pastebin.com">sales@pastebin.com</a> for more information.<br><br>
+
+                    <div class="error"><b>IMPORTANT:</b> TO WHITELIST YOUR IP, YOU NEED TO BE A PRO MEMBER! <a href="pro.html">UPGRADE TO A PRO ACCOUNT</a>, THEN YOU CAN WHITELIST YOUR IP ON THIS PAGE!</div>
+        
+            Your account status is: <b>
+
+                            <span class="red">NOT LOGGED IN</span>
+                    </b><br>
+
+        Your whitelisted IP is:
+        <b>
+                            <span class="red">NOT SET</span>
+                    </b><br>
+
+        Your current IP is: <b>199.167.201.103</b><br> <br>
+
+        Only 1 IP can be whitelisted per Pastebin PRO account. You can update your IP as often as you like, and changes
+        are effective within a minute. Both IPv4 and IPv6 IP's are accepted. It depends on your network configuration which
+        one you have to whitelist.<br><br>
+        <b>Important:</b> Please make sure you ONLY fetch the scraping API endpoints listed on this page. If you scrape
+        our website (including /raw/* pages) with your whitelisted IP, you will get blocked.
+    </div>
+
+    <!--    -->
+    <div id="2" class="anchor"></div>
+    <div class="content__sub_title">Request Limits</div>
+    <div class="content__text">
+        Your whitelisted IP should not run into any issues as long as you don't abuse our service. We recommend not
+        making more than 1 request per second, as there really is no need to do so. Going over 1 request per second
+        won't get you blocked, but if we see excessive unnecessary scraping, we might take action.
+    </div>
+
+    <!--    -->
+    <div id="3" class="anchor"></div>
+    <div class="content__sub_title">Recommended Scraping Logic</div>
+    <div class="content__text">
+        If you are trying to read ALL new public pastes, we recommend that you list 1x per minute the 100 most recent
+        pastes. Store all those ID's/Keys locally somewhere, then fetch all those pastes and process the information
+        however you like.
+        <br><br>
+        We urge you not to re-fetch pastes unnecessarily, as the data doesn't change quickly. Having some kind of local
+        database system, which prevents unnecessary re-fetches is highly recommended! It lowers the load on both your
+        own and our servers.
+    </div>
+
+    <!--    -->
+    <div id="4" class="anchor"></div>
+    <div class="content__sub_title">Request Most Recent Pastes</div>
+    <div class="content__text">
+        <div class="notice">Due to caching, items listed here are shown with a 2 minute delay.</div>
+        To fetch the most recent pastes, query the link below. It's a pretty standard JSON output. You can limit the
+        results by adding <span class="mark">?limit=10</span> for example. The max allowed value there is
+        <span class="mark">250</span>. Default is <span class="mark">50</span>. You can only reach this link with your
+        whitelisted IP!
+
+        <div class="code_box boostit">https://scrape.pastebin.com/api_scraping.php</div>
+
+        Below is an example output:
+        <div class="code_box">[
+    {
+        "scrape_url": "https://scrape.pastebin.com/api_scrape_item.php?i=0CeaNm8Y",
+        "full_url": "https://pastebin.com/0CeaNm8Y",
+        "date": "1442911802",
+        "key": "0CeaNm8Y",
+        "size": "890",
+        "expire": "1442998159",
+        "title": "Once we all know when we goto function",
+        "syntax": "java",
+        "user": "admin"
+    },
+    {
+        "scrape_url": "https://scrape.pastebin.com/api_scrape_item.php?i=8sUIsf34",
+        "full_url": "https://pastebin.com/8sUIsf34",
+        "date": "1442911665",
+        "key": "8sUIsf34",
+        "size": "250",
+        "expire": "0",
+        "title": "master / development delete restriction",
+        "syntax": "php",
+        "user": ""
+    }
+]
+        </div>
+
+        You can also add <span class="mark">?lang=php</span> for example, if you just want to grab results from a certain language.
+        We support well over 200 languages. <a href="/doc_api#5">Click here</a> to find all the supported
+        languages. Always include the value on the left hand side of that list to query it.
+    </div>
+
+    <!--    -->
+    <div id="5" class="anchor"></div>
+    <div class="content__sub_title">Request RAW Paste Data</div>
+    <div class="content__text">
+        To fetch the RAW data of any paste, you can query the URL below. Replace <span class="mark">UNIQUE_PASTE_KEY</span> with the
+        key of the paste that you want to fetch. You can only reach this link with your whitelisted IP! Do not scrape /raw/* pages, as you will get blocked.
+        <div class="code_box boostit">https://scrape.pastebin.com/api_scrape_item.php?i=UNIQUE_PASTE_KEY</div>
+    </div>
+
+    <!--    -->
+    <div id="6" class="anchor"></div>
+    <div class="content__sub_title">Request Paste Metadata</div>
+    <div class="content__text">
+        To fetch the metadata of any paste, you can query the URL below. Replace <span class="mark">UNIQUE_PASTE_KEY</span> with the
+        key of the paste that you want to fetch. You can only reach this link with your whitelisted IP!
+        <div class="code_box boostit">https://scrape.pastebin.com/api_scrape_item_meta.php?i=UNIQUE_PASTE_KEY</div>
+    </div>
+
+</div>            <div style="clear: both;"></div>
+
+                                </div>
+
+        <div class="sidebar h_1024">
+            
+
+
+
+                
+    <div class="sidebar__title">
+        <a href="archive.html">Public Pastes</a>
+    </div>
+    <ul class="sidebar__menu">
+
+                    <li>
+                <a href="wyu3WeLE.html">미완성 AI Script 1003</a>
+                <div class="details">
+                                            C# |
+                    
+                    2 min ago
+                    | 4.48 KB                </div>
+            </li>
+                    <li>
+                <a href="bbCUi8Y2.html">News Oct3 21</a>
+                <div class="details">
+                                            Email |
+                    
+                    14 min ago
+                    | 92.22 KB                </div>
+            </li>
+                    <li>
+                <a href="kYSp9qkZ.html">Can't  Can't - Koo, NVM, VINHHOANG,...</a>
+                <div class="details">
+                                            HTML 5 |
+                    
+                    20 min ago
+                    | 1.74 KB                </div>
+            </li>
+                    <li>
+                <a href="SnUjGPWu.html">[FGL utility] make_byte_array</a>
+                <div class="details">
+                                            C++ |
+                    
+                    20 min ago
+                    | 1.16 KB                </div>
+            </li>
+                    <li>
+                <a href="ZaugSP7V.html">Fresh In Alone  Fresh In Alone - Dflow, WezDe...</a>
+                <div class="details">
+                                            HTML 5 |
+                    
+                    25 min ago
+                    | 1.66 KB                </div>
+            </li>
+                    <li>
+                <a href="trRaayGp.html">hello_france</a>
+                <div class="details">
+                                            Python |
+                    
+                    28 min ago
+                    | 0.92 KB                </div>
+            </li>
+                    <li>
+                <a href="yhrUr62S.html">fr(a)</a>
+                <div class="details">
+                                            Python |
+                    
+                    31 min ago
+                    | 0.55 KB                </div>
+            </li>
+                    <li>
+                <a href="NJJyex5V.html">Queue.java [mejorado]</a>
+                <div class="details">
+                                            Java |
+                    
+                    37 min ago
+                    | 10.59 KB                </div>
+            </li>
+        
+    </ul>
+            
+
+    <div class="sidebar__sticky -on">
+                    </div>
+        </div>
+    </div>
+</div>
+
+
+    
+<div class="top-footer">
+    <a class="icon-link -size-24-24 -chrome" href="/tools#chrome" title="Google Chrome Extension"></a>
+    <a class="icon-link -size-24-24 -firefox" href="/tools#firefox" title="Firefox Extension"></a>
+    <a class="icon-link -size-24-24 -iphone" href="/tools#iphone" title="iPhone/iPad Application"></a>
+    <a class="icon-link -size-24-24 -windows" href="/tools#windows" title="Windows Desktop Application"></a>
+    <a class="icon-link -size-24-24 -android" href="/tools#android" title="Android Application"></a>
+    <a class="icon-link -size-24-24 -macos" href="/tools#macos" title="MacOS X Widget"></a>
+    <a class="icon-link -size-24-24 -opera" href="/tools#opera" title="Opera Extension"></a>
+    <a class="icon-link -size-24-24 -unix" href="/tools#pastebincl" title="Linux Application"></a>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__container">
+
+            <div class="footer__left">
+                <a href="pastebin.html">create new paste</a> <span class="footer__devider"> / </span>
+                                <a href="languages.html">syntax languages</a> <span class="footer__devider"> / </span>
+                <a href="archive.html">archive</a> <span class="footer__devider"> / </span>
+                <a href="faq.html">faq</a> <span class="footer__devider"> / </span>
+                <a href="tools.html">tools</a> <span class="footer__devider"> / </span>
+                <a href="night_mode.html">night mode</a> <span class="footer__devider"> / </span>
+                <a href="doc_api.html">api</a> <span class="footer__devider"> / </span>
+                <a href="doc_scraping_api.html">scraping api</a> <span class="footer__devider"> / </span>
+                <a href="news.html">news</a> <span class="footer__devider"> / </span>
+                <a href="pro.html" class="pro">pro</a>
+
+                <br>
+                <a href="doc_privacy_statement.html">privacy statement</a> <span class="footer__devider"> / </span>
+                <a href="doc_cookies_policy.html">cookies policy</a> <span class="footer__devider"> / </span>
+                <a href="doc_terms_of_service.html">terms of service</a><sup style="color:#999">updated</sup> <span class="footer__devider"> / </span>
+                <a href="doc_security_disclosure.html">security disclosure</a> <span class="footer__devider"> / </span>
+                <a href="dmca.html">dmca</a> <span class="footer__devider"> / </span>
+                <a href="report-abuse.html">report abuse</a> <span class="footer__devider"> / </span>
+                <a href="contact.html">contact</a>
+
+                <br>
+
+                                
+                <br>
+
+                
+<span class="footer__bottom h_800">
+    By using Pastebin.com you agree to our <a href="doc_cookies_policy.html">cookies policy</a> to enhance your experience.
+    <br>
+    Site design &amp; logo © 2021 Pastebin</span>
+            </div>
+
+            <div class="footer__right h_1024">
+                                    <a class="icon-link -size-40-40 -facebook-circle" href="https://facebook.com/pastebin" rel="nofollow" title="Like us on Facebook" target="_blank"></a>
+                    <a class="icon-link -size-40-40 -twitter-circle" href="https://twitter.com/pastebin" rel="nofollow" title="Follow us on Twitter" target="_blank"></a>
+                            </div>
+
+        </div>
+    </div>
+</footer>
+    
+
+
+    
+<div class="popup-container">
+
+                <div class="popup-box -cookies" data-name="l2c_1">
+            We use cookies for various purposes including analytics. By continuing to use Pastebin, you agree to our use of cookies as described in the <a href="doc_cookies_policy.html">Cookies Policy</a>.             <span class="cookie-button js-close-cookies">OK, I Understand</span>
+        </div>
+    
+                <div class="popup-box -pro" data-name="l2c_2_pg">
+            <div class="pro-promo-img">
+                <a href="signup.html">
+                    <img src="images/img-hello.png" alt="">
+                </a>
+            </div>
+            <div class="pro-promo-text">
+                Not a member of Pastebin yet?<br>
+                <a href="signup.html"><b>Sign Up</b></a>, it unlocks many cool features!            </div>
+            <div class="close js-close-pro-guest" title="Close Me"> </div>
+        </div>
+    
+    
+    
+</div>
+    
+
+<span class="cd-top"></span>
+
+<script src="js/9ce1885-jquery.min.js"></script>
+<script src="js/f04f76b8-yii.js"></script>
+<script>
+    const POST_EXPIRATION_NEVER = 'N';
+    const POST_EXPIRATION_BURN = 'B';
+    const POST_STATUS_PUBLIC = '0';
+    const POST_STATUS_UNLISTED = '1';
+</script>
+<script src="js/js-vendors.bundle.js"></script>
+<script src="js/js-app.bundle.js"></script>
+
+</body>
+</html>
